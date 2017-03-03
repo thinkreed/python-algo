@@ -23,5 +23,6 @@ class Solution:
 
         return max_length
 
+
 if __name__ == '__main__':
     print(Solution().longest_substring("pwwkew"))
