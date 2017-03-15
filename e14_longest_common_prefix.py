@@ -18,22 +18,29 @@ class Solution(object):
         if not strs:
             return ''
 
-        ret = strs[0]
+        s1 = min(strs)
+        s2 = max(strs)
 
-        for i in range(1, len(strs)):
-            tmp_sub = ""
-            index = 0
+        for i, c in enumerate(s1):
+            if c != s2[i]:
+                return s1[:i]
 
-            if len(ret) > 0 and len(strs[i]) > 0:
-                while ret[index] == strs[i][index]:
-                    tmp_sub += ret[index]
-                    index += 1
-                    if index >= len(ret) or index >= len(strs[i]):
-                        break
+        return s1
 
-                ret = tmp_sub
+    def method2(self, strs):
 
-        return ret
+        if not strs:
+            return ''
+
+        for i in range(len(strs[0])):
+
+            c = strs[0][i]
+
+            for j in range(1, len(strs)):
+                if i >= len(strs[j]) or strs[j][i] != c:
+                    return strs[0][:i]
+
+        return strs[0]
 
 
 if __name__ == '__main__':
