@@ -16,10 +16,14 @@ class Solution(object):
         :rtype: int
         """
 
+        #排序，o(nlogn)
         nums.sort()
+        #初值
         result = nums[0] + nums[1] + nums[2]
+        #对每一个i，寻找其最小的sum
         for i in range(len(nums) - 2):
             left, right = i + 1, len(nums) - 1
+            #固定i，寻找two sum
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
                 if sum == target:

@@ -30,9 +30,12 @@ class Solution(object):
 
         results = ['']
 
+        #循环处理每一个digit
         for _, digit in enumerate(digits):
             tmp = []
+            #遍历每一个digit代表的字母
             for _, c in enumerate(p_number_dict[digit]):
+                #累加至已有结果
                 for _, result in enumerate(results):
                     tmp.append(result + c)
 
@@ -42,4 +45,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    Solution().letterCombinations("23")
+    print(Solution().letterCombinations("23"))

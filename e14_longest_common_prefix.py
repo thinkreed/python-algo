@@ -18,10 +18,12 @@ class Solution(object):
         if not strs:
             return ''
 
+        #获取最短和最长的str
         s1 = min(strs)
         s2 = max(strs)
 
         for i, c in enumerate(s1):
+            #不同，截至i
             if c != s2[i]:
                 return s1[:i]
 

@@ -18,8 +18,10 @@ class Solution(object):
         """
 
         def find_N_sum(nums, start, target, n, result, results):
+            #跳过剩余数组长度小于n或者当前的维次2或者target小于第一个数而太小不可能存在或者太大不存在的情况
             if len(nums[start:]) < n or n < 2 or target < nums[start] * n or target > nums[-1] * n:
                 return
+            #求两数和为target
             elif n == 2:
                 left, right = start, len(nums) - 1
 
@@ -33,10 +35,11 @@ class Solution(object):
                     else:
                         results.append(result + [nums[left], nums[right]])
                         left += 1
+                        #跳过重复
                         while left < right and nums[left] == nums[left - 1]:
                             left += 1
 
-                pass
+            #降维次，将求n数和变为求n-1数和
             else:
                 for i in range(len(nums[start:]) - n + 1):
                     if i == 0 or (i > 0 and nums[start + i - 1] != nums[start + i]):

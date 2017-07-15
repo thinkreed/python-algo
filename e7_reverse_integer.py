@@ -9,24 +9,11 @@ __mtime__ = '17/3/7'
 
 
 class Solution:
-    def reverse_integer(self, value):
-        ret_val = 0
-        flag = 1
-        if value < 0:
-            value *= -1
-            flag = -1
-
-        while value != 0:
-            tail = value % 10
-            cur = ret_val * 10 + tail
-            check = cur // 10
-            if check != ret_val:
-                return 0
-            ret_val = cur
-            value = (value // 10)
-
-        return ret_val * flag
+    def reverse(self, x):
+        s = cmp(x, 0)
+        r = int(`s*x`[::-1])
+        return s*r * (r < 2**31)
 
 
 if __name__ == '__main__':
-    print(Solution().reverse_integer(-123))
+    print(Solution().reverse(-123))
